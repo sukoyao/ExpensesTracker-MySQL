@@ -5,7 +5,7 @@ const Record = db.Record
 const User = db.User
 
 router.get('/', (req, res) => {
-  const user = User.findByPk(req.user.id)
+  User.findByPk(req.user.id)
     .then(user => {
       if (!user) throw new Error('User not found')
 
@@ -23,10 +23,10 @@ router.get('/', (req, res) => {
 
       return res.render('index', { records, totalAmount })
     })
-})
-  .catch(error => {
-    return res.status(422).json(error)
-  })
 
+    .catch(error => {
+      return res.status(422).json(error)
+    })
+})
 
 module.exports = router

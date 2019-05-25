@@ -14,9 +14,7 @@ router.get('/month/:month', (req, res) => {
       return Record.findAll({
         where: {
           UserId: req.user.id,
-          Date: {
-            [Sequelize.Op.like]: `${month}`
-          }
+          Date: { [Sequelize.Op.like]: `${month}` }
         }
       })
     })
