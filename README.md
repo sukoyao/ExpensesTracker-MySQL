@@ -5,7 +5,7 @@
 
  ## Pic
 
- ![畫面截圖](https://imgur.com/4gQ0Wkr.jpg)
+ ![畫面截圖](https://imgur.com/Qks2ges.jpg)
 
  ## Env Setting
 
