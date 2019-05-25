@@ -71,4 +71,4 @@ node app.js
 
  ## Contributor
 
- [Yao](https://github.com/sukoyao)# Expenses-MySQL
+ [Yao](https://github.com/sukoyao)
