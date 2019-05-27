@@ -8,6 +8,8 @@ const session = require('express-session')
 const passport = require('passport')
 const flash = require('connect-flash')
 const mongoose = require('mongoose')
+const db = require('./models')
+const { authenticated } = require('./config/auth')
 
 Handlebars.registerHelper('switch', (value, options) => {
   this.switch_value = value
@@ -69,10 +71,11 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/', require('./routes/home'))
-app.use('/rewrites', require('./routes/rewrites'))
-app.use('/users', require('./routes/users'))
+app.use('/records', require('./routes/record'))
+app.use('/users', require('./routes/user'))
 app.use('/auth', require('./routes/auths'))
 
 app.listen(process.env.PORT || 3000, () => {
+  db.sequelize.sync()
   console.log('App is running: localhost:3000')
 })

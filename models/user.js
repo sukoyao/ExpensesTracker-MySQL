@@ -1,2 +1,12 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  }, {});
+  User.associate = function (models) {
+    User.hasMany(models.Record)
+  };
+  return User;
+};
