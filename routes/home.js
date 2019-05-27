@@ -7,10 +7,9 @@ const User = db.User
 router.get('/', (req, res) => {
   const user = User.findByPk(req.user.id)
     .then(user => {
-      if (!user) {
-        return res.error()
-      }
-      Record.findAll({
+      if (!user) throw new Error('User not found')
+
+      return Record.findAll({
         where: {
           UserId: req.user.id
         }

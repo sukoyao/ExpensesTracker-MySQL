@@ -28,20 +28,6 @@ Handlebars.registerHelper('case', (value, options) => {
   }
 })
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/records', {
-  useNewUrlParser: true,
-  useCreateIndex: true
-})
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
-
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 

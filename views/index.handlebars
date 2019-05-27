@@ -15,7 +15,7 @@
         <a class="dropdown-item" href="/filter/month/09">9月</a>
         <a class="dropdown-item" href="/filter/month/10">10月</a>
         <a class="dropdown-item" href="/filter/month/11">11月</a>
-        <a class="dropdown-item" href="/filter/month/12">11月</a>
+        <a class="dropdown-item" href="/filter/month/12">12月</a>
       </div>
     </div>
   </div>
@@ -58,16 +58,20 @@
         {{/switch}}
       </div>
       <div class="col-auto mr-auto">
-        <p style="line-height: 2em">{{this.name}}</p>
-        <p style="line-height: 0.5em">{{this.date}}</p>
+        <div class="d-inline-block">
+          <p style="line-height: 2em">{{this.name}}</p>
+
+          <p style="line-height: 1.5em">{{this.date}}</p>
+        </div>
+
       </div>
-      <div class="col-auto">
+      <div class="col text-center ">
         <h3 style="line-height: 2em">{{this.amount}}</h3>
       </div>
       <div class="col-2">
         <a href="/records/{{this.id}}/edit" class="btn btn-outline-dark btn-block">修改</a>
         <form action="/records/{{this.id}}/delete?_method=DELETE" method="post" style="display:inline">
-          <button type="submit" class="btn btn-outline-dark btn-block">刪除</button>
+          <button type="submit" class="btn btn-outline-dark btn-block mt-2">刪除</button>
         </form>
       </div>
     </div>
