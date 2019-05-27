@@ -15,6 +15,16 @@
 
  - [Express](https://expressjs.com/zh-tw/starter/installing.html) - Node.js web framework
 
+ 在 [facebook for developers](https://developers.facebook.com/) 創一個新的應用程式，取得App的編號 (ID)和密鑰 (SECRET)
+
+ 開啟程式碼編輯器，在根目錄底下創建一個 `.env` 檔，輸入 ID 與 Secret
+
+ ```
+FACEBOOK_ID=******
+FACEBOOK_SECRET=******
+FACEBOOK_CALLBACK=http://localhost:3000/auth/facebook/callback
+```
+
  ## Installing
 
  #### 安裝下載並啟動專案
@@ -61,4 +71,4 @@ node app.js
 
  ## Contributor
 
- [Yao](https://github.com/sukoyao)
+ [Yao](https://github.com/sukoyao)# Expenses-MySQL
