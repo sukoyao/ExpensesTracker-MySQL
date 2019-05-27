@@ -11,6 +11,10 @@ const mongoose = require('mongoose')
 const db = require('./models')
 const { authenticated } = require('./config/auth')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 Handlebars.registerHelper('switch', (value, options) => {
   this.switch_value = value
   this.switch_break = false
