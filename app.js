@@ -9,11 +9,6 @@ const passport = require('passport')
 const flash = require('connect-flash')
 const mongoose = require('mongoose')
 
-// 判別開發環境
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
 Handlebars.registerHelper('switch', (value, options) => {
   this.switch_value = value
   this.switch_break = false
