@@ -1,12 +1,11 @@
 {
-  "name": "express_basic",
+  "name": "expenses-MySQL",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "seeder": "node models/seeds/seeder.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,12 +15,12 @@
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^8.0.0",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2",
+    "express": "^4.17.0",
+    "express-handlebars": "^3.1.0",
     "express-session": "^1.16.1",
     "handlebars-helpers": "^0.10.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.5.7",
+    "mongoose": "^5.5.11",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0"
