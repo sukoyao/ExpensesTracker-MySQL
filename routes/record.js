@@ -24,18 +24,17 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   User.findByPk(req.user.id)
     .then(user => {
-      if (!user) {
-        return res.error()
-      }
+      if (!user) throw new Error('User not found')
 
-      Record.findOne({
+      return Record.findOne({
         where: {
           Id: req.params.id,
           UserId: req.user.id
         }
-      }).then(record => {
-        return res.render('edit', { record })
       })
+    })
+    .then(record => {
+      return res.render('edit', { record })
     })
     .catch(error => {
       return res.status(422).json(error)
@@ -49,36 +48,35 @@ router.put('/:id', (req, res) => {
       Id: req.params.id,
       UserId: req.user.id
     }
-  }).then(record => {
-    Object.assign(record, req.body)
-
-    record
-      .save()
-      .then(record => {
-        return res.redirect('/')
-      })
-      .catch(err => {
-        return res.status(422).json(err)
-      })
   })
+    .then(record => {
+      Object.assign(record, req.body)
+
+      return record.save()
+    })
+    .then(record => {
+      return res.redirect('/')
+    })
+    .catch(err => {
+      return res.status(422).json(err)
+    })
 })
 
 // delete post
 router.delete('/:id/delete', (req, res) => {
   User.findByPk(req.user.id)
     .then(user => {
-      if (!user) {
-        return res.error()
-      }
+      if (!user) throw new Error('User not found')
 
-      Record.destroy({
+      return Record.destroy({
         where: {
           UserId: req.user.id,
           Id: req.params.id
         }
-      }).then(record => {
-        return res.redirect('/')
       })
+    })
+    .then(record => {
+      return res.redirect('/')
     })
     .catch(error => {
       return res.status(422).json(error)

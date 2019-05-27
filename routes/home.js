@@ -13,18 +13,20 @@ router.get('/', (req, res) => {
         where: {
           UserId: req.user.id
         }
-      }).then(records => {
-        let totalAmount = 0
-        for (record of records) {
-          totalAmount += record.amount
-        }
-
-        return res.render('index', { records, totalAmount })
       })
     })
-    .catch(error => {
-      return res.status(422).json(error)
+    .then(records => {
+      let totalAmount = 0
+      for (record of records) {
+        totalAmount += record.amount
+      }
+
+      return res.render('index', { records, totalAmount })
     })
 })
+  .catch(error => {
+    return res.status(422).json(error)
+  })
+
 
 module.exports = router
